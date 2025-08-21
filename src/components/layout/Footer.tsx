@@ -14,7 +14,7 @@ export default function Footer() {
           </p>
         </section>
 
-        <div className={styles.copy}>&copy; 2024 KB Jewels. All rights reserved.</div>
+        <div className={styles.copy}>&copy; 2025 KB Jewels. All rights reserved.</div>
       </div>
     </footer>
   );

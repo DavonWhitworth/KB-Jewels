@@ -15,7 +15,7 @@ export default function TestimonialsPage() {
             <li key={idx} className="surface" style={{ padding: 16 }}>
               <p style={{ marginBottom: 8 }}>&ldquo;{t.message}&rdquo;</p>
               <p className="muted" style={{ fontSize: 14 }}>
-                — {t.customerName ?? (t as any).name} • {t.location}
+              — {t.customerName} • {t.location}
               </p>
             </li>
           ))}

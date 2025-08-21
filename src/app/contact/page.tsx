@@ -1,7 +1,7 @@
 "use client";
 
 import { Grid, Box, Typography, TextField, Button } from "@mui/material";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 // ✅ Validation schema with Yup
@@ -28,7 +28,7 @@ export default function Contact() {
 
       {/* Grid layout */}
       <Grid container justifyContent="center" spacing={6}>
-        <Grid item xs={12} md={6}>
+        <Grid >
           <Typography variant="h5" fontWeight="600" mb={3}>
             Send us a Message
           </Typography>

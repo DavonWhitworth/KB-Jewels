@@ -15,7 +15,7 @@ export interface FooterLink {
 }
 
 export interface Testimonial {
-  customerName: string;
+  customerName?: string;
   location: string;
   message: string;
 }
