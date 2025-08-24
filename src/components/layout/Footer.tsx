@@ -1,21 +1,101 @@
+"use client";
+
 import Link from "next/link";
-import styles from "./Footer.module.css";
+import { Box, Typography, Container } from "@mui/material";
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.inner}>
-        <section className={styles.section}>
-          <h3 className={styles.heading}>Contact Us</h3>
-          <p className={styles.text}>
-          <Link className={styles.link} href="/contact">Message Us</Link>
-            <br />
-            +91 70888 06000
-          </p>
-        </section>
+    <Box
+      component="footer"
+      sx={{
+        mt: "auto",
+        background: "var(--glass-bg)",
+        backdropFilter: "blur(var(--blur))",
+        borderTop: "var(--glass-border)",
+        py: 4,
+        px: 2,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 1fr" },
+            gap: 4,
+            alignItems: "start",
+          }}
+        >
+          <Box sx={{ gridColumn: { md: "1 / -1" } }}>
+            <Typography
+              variant="h6"
+              sx={{
+                color: "var(--color-accent)",
+                fontFamily: "var(--font-display)",
+                fontWeight: 600,
+                letterSpacing: "0.02em",
+                fontSize: { xs: "0.95rem", md: "1.05rem" },
+                mb: { md: 0.5 },
+              }}
+            >
+              Premium Custom Jewellery
+            </Typography>
+          </Box>
 
-        <div className={styles.copy}>&copy; 2025 KB Jewels. All rights reserved.</div>
-      </div>
-    </footer>
+          <Box>
+            <Typography
+              variant="h6"
+              sx={{
+                color: "var(--color-accent)",
+                fontFamily: "var(--font-display)",
+                fontSize: "1rem",
+                fontWeight: 600,
+                mb: 1,
+              }}
+            >
+              Contact Us
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                color: "var(--color-text)",
+                fontFamily: "var(--font-geist-sans)",
+                opacity: 0.9,
+                lineHeight: 1.6,
+              }}
+            >
+              <Link
+                href="/contact"
+                style={{
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+                className="footer-link"
+              >
+                Message Us
+              </Link>
+              <br />
+              +91 70888 06000
+            </Typography>
+          </Box>
+
+          <Box sx={{ gridColumn: { md: "1 / -1" } }}>
+            <Typography
+              variant="body2"
+              sx={{
+                color: "var(--color-text-muted)",
+                fontFamily: "var(--font-geist-sans)",
+                borderTop: "1px dashed var(--color-border)",
+                paddingTop: 2,
+                marginTop: 1,
+                fontSize: "0.9rem",
+                textAlign: "center",
+              }}
+            >
+              &copy; 2025 KB Jewels. All rights reserved.
+            </Typography>
+          </Box>
+        </Box>
+      </Container>
+    </Box>
   );
 }

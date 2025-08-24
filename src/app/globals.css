@@ -7,9 +7,9 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -26,8 +26,9 @@ code, pre, kbd, samp {
 }
 
 a {
-  color: inherit;
+  color: var(--color-accent);
   text-decoration: none;
+  font-weight: 500;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,14 +41,15 @@ a {
 
 /* Input field background and text color */
 .MuiInputBase-root {
-  background-color: var(--color-surface) !important;
+  background: var(--glass-bg) !important;
   color: var(--color-text) !important;
-  border-radius: 8px !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(var(--blur)) !important;
 }
 
 /* Input label color */
 .MuiInputLabel-root {
-  color: var(--color-muted) !important;
+  color: var(--color-text-muted) !important;
 }
 
 /* Outlined input border color */
@@ -57,7 +59,7 @@ a {
 
 /* Focused input border color */
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: var(--color-heading) !important; /* Gold on focus */
+  border-color: var(--color-accent) !important; /* Gold on focus */
 }
 
 /* Input text color */
@@ -67,14 +69,19 @@ a {
 
 /* Helper text/error message color */
 .MuiFormHelperText-root {
-  color: var(--color-muted) !important; /* Or a specific error color if defined */
+  color: var(--color-text-muted) !important;
 }
 
 /* Button styling */
 .MuiButton-root {
-  background-color: var(--color-heading) !important;
+  background: var(--color-accent) !important;
   color: var(--color-bg) !important; /* Text color should contrast with gold */
   &:hover {
-    background-color: var(--color-link-hover) !important;
+    background: var(--color-accent-muted) !important;
   }
+}
+
+/* Footer link hover effect */
+.footer-link:hover {
+  text-decoration: underline !important;
 }

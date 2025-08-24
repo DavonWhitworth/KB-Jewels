@@ -1,77 +1,150 @@
 /* Global theme tokens and default typography colors */
 
 :root {
-  /* Palette */
-  --color-bg: #0b0b0b; /* deep near-black */
-  --color-surface: #111111; /* cards/sections */
-  --color-text: #ede9e3; /* warm off-white */
-  --color-muted: #b8b1a8; /* muted text */
-  --color-heading: #d4af37; /* luxury gold for headings */
-  --color-link: #caa24a; /* link base */
-  --color-link-hover: #e3c66b; /* link hover */
-  --color-border: #242424;
+  /* Core Colors */
+  --color-bg: #121212;
+  --color-surface: rgba(255, 255, 255, 0.06);
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  /* Text Colors */
+  --color-text: #F5F5F5;
+  --color-text-muted: #A5A5A5;
+
+  /* Accent Colors */
+  --color-accent: #D4AF37;
+  --color-accent-muted: #B08D57;
+  --color-accent-alt: #6CA6C1;
+
+  /* Glass Effects */
+  --blur: 12px;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* Legacy Compatibility */
+  --color-heading: var(--color-accent);
+  --color-link: var(--color-accent);
+  --color-link-hover: var(--color-accent-muted);
+  --color-muted: var(--color-text-muted);
 
   /* Map to existing globals for compatibility */
   --background: var(--color-bg);
   --foreground: var(--color-text);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg: #faf8f6;
-    --color-surface: #ffffff;
-    --color-text: #201a14;
-    --color-muted: #6b6157;
-    --color-heading: #8f6a00; /* deeper gold for light mode */
-    --color-link: #7a5a00;
-    --color-link-hover: #a37a00;
-    --color-border: #e8e2da;
-  }
+/* Typography System */
+/* Stylish Font (Playfair Display) - for headers and elegant text */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-accent);
+  font-family: var(--font-display), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.02em;
 }
 
-/* Typography defaults */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-heading);
-  font-family: var(--font-display), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+/* Classic Font (Geist) - for body text and UI elements */
+p, li, small, label, input, textarea, button, span, div {
+  color: var(--color-text);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 { font-size: clamp(2.25rem, 2vw + 1.75rem, 3rem); line-height: 1.15; }
-h2 { font-size: clamp(1.75rem, 1.5vw + 1.25rem, 2.25rem); line-height: 1.2; }
-h3 { font-size: clamp(1.5rem, 1vw + 1rem, 1.75rem); line-height: 1.25; }
-h4 { font-size: 1.25rem; line-height: 1.3; }
-h5 { font-size: 1.125rem; line-height: 1.35; }
-h6 { font-size: 1rem; line-height: 1.4; letter-spacing: 0.02em; }
-
-p, li, small, label, input, textarea, button {
-  color: var(--color-text);
+/* Typography Scale */
+h1 { 
+  font-size: clamp(2.25rem, 2vw + 1.75rem, 3rem); 
+  line-height: 1.15; 
+  font-weight: 700;
+}
+h2 { 
+  font-size: clamp(1.75rem, 1.5vw + 1.25rem, 2.25rem); 
+  line-height: 1.2; 
+  font-weight: 600;
+}
+h3 { 
+  font-size: clamp(1.5rem, 1vw + 1rem, 1.75rem); 
+  line-height: 1.25; 
+  font-weight: 600;
+}
+h4 { 
+  font-size: 1.25rem; 
+  line-height: 1.3; 
+  font-weight: 600;
+}
+h5 { 
+  font-size: 1.125rem; 
+  line-height: 1.35; 
+  font-weight: 500;
+}
+h6 { 
+  font-size: 1rem; 
+  line-height: 1.4; 
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
-small { color: var(--color-muted); }
+/* Body Text */
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
 
+/* Small Text */
+small { 
+  color: var(--color-text-muted); 
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* Links */
 a {
-  color: var(--color-link);
+  color: var(--color-accent);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: color 200ms ease, border-color 200ms ease;
+  font-weight: 500;
 }
 
 a:hover {
-  color: var(--color-link-hover);
+  color: var(--color-accent-muted);
   border-bottom-color: currentColor;
 }
 
 /* Surfaces */
 .surface {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  backdrop-filter: blur(var(--blur));
+  border-radius: 16px;
+}
+
+.card {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  backdrop-filter: blur(var(--blur));
+  border-radius: 16px;
 }
 
 /* Utilities */
-.muted { color: var(--color-muted); }
-.gold { color: var(--color-heading); }
+.muted { color: var(--color-text-muted); }
+.gold { color: var(--color-accent); }
+.accent { color: var(--color-accent); }
+.accent-muted { color: var(--color-accent-muted); }
+.accent-alt { color: var(--color-accent-alt); }
+
+/* Typography Utility Classes */
+.text-stylish {
+  font-family: var(--font-display), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.text-classic {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.text-mono {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 
 
 
