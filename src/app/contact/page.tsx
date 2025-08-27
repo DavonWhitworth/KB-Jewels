@@ -33,8 +33,8 @@ const ContactSchema = Yup.object().shape({
     .required("Message is required"),
 });
 
-// Initialize EmailJS
-emailjs.init("5bGvSNIBNLphlc35m"); // Replace with your actual EmailJS user ID
+
+emailjs.init("5bGvSNIBNLphlc35m");
 
 async function submitContactForm(data: ContactFormData) {
   try {

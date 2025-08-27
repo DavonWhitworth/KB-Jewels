@@ -93,8 +93,7 @@ export default function Portfolio() {
         }}
       >
         {images.map((img, idx) => {
-          // Determine image dimensions and positioning
-          const isWide = idx % 3 === 0; // Every 3rd image is wide
+          const isWide = idx % 3 === 0; // Every 3rd image is wide // AI...probably only works with the current images
           const isOffset = idx % 2 === 1; // Every 2nd image has offset
           
           return (
@@ -122,13 +121,13 @@ export default function Portfolio() {
                   },
                 },
                 "&:nth-child(3n+1)": {
-                  // Wide images (every 3rd starting from 1st)
+                  // Wide images (every 3rd starting from 1st) // why do this
                   width: "100%",
                   marginLeft: 0,
                   marginRight: 0,
                 },
                 "&:nth-child(3n+2), &:nth-child(3n+3)": {
-                  // Regular images (2nd and 3rd in each group of 3)
+                  // Regular images (2nd and 3rd in each group of 3) // why do this
                   width: "48%",
                 },
               }}
@@ -151,7 +150,7 @@ export default function Portfolio() {
                   sx={{
                     position: "relative",
                     width: "100%",
-                    height: isWide ? "400px" : "300px", // Taller for wide images
+                    height: isWide ? "400px" : "300px",
                     overflow: "hidden",
                   }}
                 >
@@ -162,7 +161,7 @@ export default function Portfolio() {
                     fill
                     style={{
                       objectFit: "cover",
-                      objectPosition: "center", // This centers the image
+                      objectPosition: "center",
                     }}
                   />
                 </Box>

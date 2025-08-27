@@ -119,7 +119,7 @@ export default function Navbar() {
             justifyContent: "space-between",
             py: isScrolled ? 1 : 3,
             transition: "all 0.3s ease",
-            px: 4, // Add horizontal padding for even spacing
+            px: 4,
           }}
         >
           {/* Left Navigation Links */}
@@ -129,8 +129,8 @@ export default function Navbar() {
                 display: "flex",
                 gap: 4,
                 alignItems: "center",
-                flex: 1, // Take up available space
-                justifyContent: "flex-end", // Push links to the right edge of their space
+                flex: 1,
+                justifyContent: "flex-end",
               }}
             >
               <Link href="/portfolio" passHref>
@@ -170,17 +170,18 @@ export default function Navbar() {
             </IconButton>
           )}
 
-          {/* Emblem / Logo - Center with Homepage Link */}
+          {/* Emblem */}
           <Link href="/" passHref>
             <Box
               component="img"
-              src="/logo.png" // replace with your emblem file
+              src="/emblem.png"
               alt="KB Jewels Logo"
               sx={{
-                height: isScrolled ? 100 : 115, // Bigger when at top
+                height: isScrolled ? 100 : 115,
                 transition: "height 1.0s ease",
                 mx: 3,
                 cursor: "pointer",
+                filter: "brightness(5) contrast(0.5)",
                 "&:hover": {
                   opacity: 0.8,
                   transition: "opacity 0.2s ease",
@@ -196,8 +197,8 @@ export default function Navbar() {
                 display: "flex",
                 gap: 4,
                 alignItems: "center",
-                flex: 1, // Take up available space
-                justifyContent: "flex-start", // Push links to the left edge of their space
+                flex: 1,
+                justifyContent: "flex-start",
               }}
             >
               <Link href="/contact" passHref>
@@ -221,7 +222,7 @@ export default function Navbar() {
 
           {/* Spacer for right side balance when mobile */}
           {isMobile && (
-            <Box sx={{ width: 48 }} /> // Same width as IconButton for balance
+            <Box sx={{ width: 48 }} />
           )}
         </Toolbar>
       </AppBar>

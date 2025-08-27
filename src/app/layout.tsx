@@ -23,7 +23,48 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "KB Jewels",
-  description: "Preminum Custom Jewellery by Kunj Bansal",
+  description: "Premium Custom Jewellery by Kunj Bansal",
+  keywords: "custom jewellery, engagement rings, wedding rings, bespoke jewelry, KB Jewels, Kunj Bansal, premium custom jewellery",
+  authors: [{ name: "Kunj Bansal" }],
+  creator: "Kunj Bansal",
+  publisher: "KB Jewels",
+  robots: "index, follow",
+  alternates: {
+    canonical: 'https://kb-jewels.com',
+  },
+  other: {
+    'language': 'English',
+    'geo.region': 'IN',
+    'geo.country': 'India',
+    'geo.placename': 'India',
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
+  openGraph: {
+    title: 'KB Jewels',
+    description: 'Premium Custom Jewellery by Kunj Bansal',
+    type: 'website',
+    url: 'https://kb-jewels.com',
+    siteName: 'KB Jewels',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'KB Jewels - Premium Custom Jewellery',
+      }
+    ],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'KB Jewels',
+    description: 'Premium Custom Jewellery by Kunj Bansal',
+    images: ['/og-image.png'],
+  },
+  viewport: 'width=device-width, initial-scale=1',
+  themeColor: '#D4AF37', // Your accent color
 };
 
 export default function RootLayout({
