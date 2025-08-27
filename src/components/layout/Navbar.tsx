@@ -58,7 +58,6 @@ export default function Navbar() {
         sx={{ 
           my: 2,
           color: "var(--color-accent)",
-          fontFamily: "var(--font-display)",
           fontWeight: 600,
         }}
       >
@@ -86,7 +85,6 @@ export default function Navbar() {
                   fontSize: "1.1rem",
                   fontWeight: 500,
                   color: "var(--color-text)",
-                  fontFamily: "var(--font-geist-sans)",
                 }
               }}
             />
@@ -141,7 +139,6 @@ export default function Navbar() {
                   sx={{ 
                     cursor: "pointer",
                     color: isScrolled ? "var(--color-text)" : "var(--color-text-muted)",
-                    fontFamily: "var(--font-geist-sans)",
                     fontWeight: isScrolled ? 500 : 400,
                     transition: "all 0.3s ease",
                     "&:hover": {
@@ -209,7 +206,6 @@ export default function Navbar() {
                   sx={{ 
                     cursor: "pointer",
                     color: isScrolled ? "var(--color-text)" : "var(--color-text-muted)",
-                    fontFamily: "var(--font-geist-sans)",
                     fontWeight: isScrolled ? 500 : 400,
                     transition: "all 0.3s ease",
                     "&:hover": {

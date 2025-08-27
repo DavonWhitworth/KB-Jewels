@@ -16,6 +16,10 @@ import {
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useNotification } from "../../components/layout/NotificationContext";
+import { ContactFormData } from "@/lib/types";
+import ReCAPTCHA from "react-google-recaptcha";
+import emailjs from "emailjs-com";
+
 
 // ✅ Validation schema
 const ContactSchema = Yup.object().shape({
@@ -28,6 +32,34 @@ const ContactSchema = Yup.object().shape({
     .min(6, "Message must be at least 6 characters")
     .required("Message is required"),
 });
+
+// Initialize EmailJS
+emailjs.init("5bGvSNIBNLphlc35m"); // Replace with your actual EmailJS user ID
+
+async function submitContactForm(data: ContactFormData) {
+  try {
+    // Prepare the email template parameters
+    const templateParams = {
+      from_name: data.name || "Anonymous",
+      from_email: data.email || "No email provided",
+      from_phone: data.phone || "No phone provided",
+      message: data.message,
+      preferred_contact: data.preferred || "Not specified"
+    };
+
+    // Send email using EmailJS
+    const result = await emailjs.send(
+      "service_hh9a9tt", // EmailJS service ID
+      "template_g0bt45p", // EmailJS template ID
+      templateParams
+    );
+
+    return result;
+  } catch (error) {
+    console.error("Error submitting contact form:", error);
+    throw error;
+  }
+}
 
 export default function Contact() {
   const { showSuccess, showError } = useNotification();
@@ -43,7 +75,6 @@ export default function Contact() {
           sx={{ 
             fontWeight: "bold", 
             color: "var(--color-accent)",
-            fontFamily: "var(--font-display)",
             letterSpacing: "0.02em",
             mb: 3,
           }}
@@ -54,7 +85,6 @@ export default function Contact() {
           variant="h5"
           sx={{
             color: "var(--color-text)",
-            fontFamily: "var(--font-geist-sans)",
             maxWidth: "800px",
             mx: "auto",
             lineHeight: 1.6,
@@ -83,23 +113,20 @@ export default function Contact() {
           sx={{ 
             fontWeight: "600", 
             color: "var(--color-accent)",
-            fontFamily: "var(--font-display)",
             letterSpacing: "0.02em",
             mb: 5,
             textAlign: "center",
           }}
         >
-          Send us a Message - This is not KB Jewels...yet...To contact KB Jewels, go to <a href="https://www.kb-jewels.com/contact" target="_blank" rel="noopener noreferrer">
-          https://www.kb-jewels.com/contact</a>
+          Send us a Message
         </Typography>
 
         {/* ✅ Formik form */}
         <Formik
-          initialValues={{ name: "", email: "", phone: "", message: "" }}
+          initialValues={{ name: "", email: "", phone: "", message: "", preferred: "" }}
           validationSchema={ContactSchema}
-          onSubmit={(values, { resetForm }) => {
-
-            showError("This form does not work.")
+          onSubmit={async (values, { resetForm }) => {
+            console.log("Form submitted:", values);
 
             try {
               // require at least one contact method
@@ -112,20 +139,14 @@ export default function Contact() {
                 return;
               }
 
-              const submission = {
-                name: values.name || undefined,
-                email: values.email || undefined,
-                phone: values.phone || undefined,
-                preferredContact: preferred || undefined,
-                message: values.message || undefined,
-              };
-
-              console.log("Form submitted:", submission);
+              const result = await submitContactForm(values);
+              console.log("Success:", result);
               resetForm();
               setPreferred(null);
               showSuccess("Message sent successfully!");
             } catch (err) {
-              showError("Something went wrong. Please try again.");
+              console.error("Form submission error:", err);
+              showError("Something went wrong. Please try again later.");
             }
           }}
         >
@@ -283,7 +304,6 @@ export default function Contact() {
                         <FormLabel 
                           sx={{ 
                             color: "var(--color-text)",
-                            fontFamily: "var(--font-geist-sans)",
                             fontWeight: 600,
                             mb: 1,
                           }}
@@ -308,7 +328,6 @@ export default function Contact() {
                             },
                             "& .MuiFormControlLabel-label": {
                               color: "var(--color-text)",
-                              fontFamily: "var(--font-geist-sans)",
                             },
                           }}
                         >
@@ -381,13 +400,22 @@ export default function Contact() {
                   </Box>
                 </Box>
 
+                
+          {/* reCAPTCHA */}
+          <Box sx={{ mt: 4, display: "flex", justifyContent: "center" }}>
+            <ReCAPTCHA 
+              sitekey="6Le5srMrAAAAAGNf-5kqWKB4bWZNTuiKhlMT0-si" 
+              onChange={(value: string | null) => console.log('reCAPTCHA value:', value)}
+            />
+          </Box>
+
                 {/* Submit Button - Full Width Below */}
                 <Box sx={{ mt: 6, textAlign: "center" }}>
                   <Button
                     type="submit"
                     variant="contained"
                     size="medium"
-                    disabled={!contactValid || true } // Delete true condition when domain transfered and form and working
+                    disabled={!contactValid }
                     sx={{
                       background: "var(--color-accent)",
                       color: "var(--color-bg)",
@@ -409,7 +437,7 @@ export default function Contact() {
                       transition: "all 0.3s ease",
                     }}
                   >
-                    Send Message - This button is disabled
+                    Send Message
                   </Button>
                 </Box>
               </Form>

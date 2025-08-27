@@ -32,69 +32,6 @@ export default function Home() {
           <source src="/VID-20250327-WA0029.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-
-        {/* Content Overlay */}
-        <Box
-          sx={{
-            position: "relative",
-            zIndex: 2,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            textAlign: "center",
-            gap: 2,
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          <Box>
-            <Typography 
-              variant="h3" 
-              component="h1"
-              sx={{ 
-                color: "white",
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                letterSpacing: "0.02em",
-                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
-              }}
-            >
-              Premium Custom Jewellery
-            </Typography>
-          </Box>
-
-          <Box>
-            <Typography 
-              variant="body1" 
-              sx={{ 
-                color: "white",
-                fontFamily: "var(--font-geist-sans)",
-                textShadow: "1px 1px 2px rgba(0, 0, 0, 0.7)",
-                fontSize: "1.1rem",
-                lineHeight: 1.6,
-              }}
-            >
-              ---------- This is a work in progress, visit the official site:
-              {" "}
-              <Link
-                href="https://www.kb-jewels.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                underline="always"
-                sx={{ 
-                  color: "white",
-                  fontWeight: 500,
-                  "&:hover": {
-                    color: "#f0f0f0"
-                  }
-                }}
-              >
-                kb-jewels.com
-              </Link> ----------
-            </Typography>
-          </Box>
-        </Box>
       </Box>
 
       {/* About Section */}
@@ -112,7 +49,6 @@ export default function Home() {
               component="h2"
               sx={{ 
                 color: "var(--color-accent)",
-                fontFamily: "var(--font-display)",
                 fontWeight: 700,
                 letterSpacing: "0.02em",
                 mb: 3,
@@ -124,7 +60,6 @@ export default function Home() {
               variant="h5" 
               sx={{ 
                 color: "var(--color-text-muted)",
-                fontFamily: "var(--font-geist-sans)",
                 fontWeight: 400,
                 maxWidth: "600px",
                 mx: "auto",
@@ -149,7 +84,6 @@ export default function Home() {
                 variant="h6" 
                 sx={{ 
                   color: "var(--color-accent)",
-                  fontFamily: "var(--font-display)",
                   fontWeight: 600,
                   letterSpacing: "0.02em",
                   mb: 3,
@@ -163,7 +97,6 @@ export default function Home() {
                   mb: 3,
                   lineHeight: 1.8,
                   color: "var(--color-text)",
-                  fontFamily: "var(--font-geist-sans)",
                 }}
               >
                 Founded by master jeweller Kunj Bansal, KB Jewels has been at the forefront of custom jewellery design for nearly a decade. We specialize in creating unique, personalized pieces that tell your story through exquisite craftsmanship and innovative design.
@@ -174,7 +107,6 @@ export default function Home() {
                   mb: 3,
                   lineHeight: 1.8,
                   color: "var(--color-text)",
-                  fontFamily: "var(--font-geist-sans)",
                 }}
               >
                 From engagement rings to family heirlooms, each piece is meticulously crafted using the finest materials and traditional techniques combined with modern innovation. Our commitment to quality and attention to detail ensures that every creation becomes a cherished treasure.
@@ -184,7 +116,6 @@ export default function Home() {
                 sx={{ 
                   lineHeight: 1.8,
                   color: "var(--color-text)",
-                  fontFamily: "var(--font-geist-sans)",
                 }}
               >
                 We believe that jewellery should be as unique as the person wearing it, which is why we work closely with our clients to bring their vision to life, creating pieces that are truly one-of-a-kind.
@@ -208,7 +139,6 @@ export default function Home() {
                 variant="body1" 
                 sx={{ 
                   color: "var(--color-text-muted)",
-                  fontFamily: "var(--font-geist-sans)",
                   textAlign: "center",
                   px: 4,
                 }}

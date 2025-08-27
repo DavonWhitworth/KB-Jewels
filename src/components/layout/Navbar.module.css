@@ -18,7 +18,6 @@
 
 .brand {
 	color: var(--color-heading);
-	font-family: var(--font-display), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 	font-weight: 700;
 	font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
 	letter-spacing: 0.02em;

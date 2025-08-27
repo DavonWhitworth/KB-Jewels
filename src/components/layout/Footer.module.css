@@ -15,7 +15,6 @@
 
 .tagline {
 	color: var(--color-heading);
-	font-family: var(--font-display), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 	font-weight: 700;
 	letter-spacing: 0.04em;
 	text-align: left;

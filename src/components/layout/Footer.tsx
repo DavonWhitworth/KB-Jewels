@@ -25,28 +25,12 @@ export default function Footer() {
             alignItems: "start",
           }}
         >
-          <Box sx={{ gridColumn: { md: "1 / -1" } }}>
-            <Typography
-              variant="h6"
-              sx={{
-                color: "var(--color-accent)",
-                fontFamily: "var(--font-display)",
-                fontWeight: 600,
-                letterSpacing: "0.02em",
-                fontSize: { xs: "0.95rem", md: "1.05rem" },
-                mb: { md: 0.5 },
-              }}
-            >
-              Premium Custom Jewellery
-            </Typography>
-          </Box>
 
           <Box>
             <Typography
               variant="h6"
               sx={{
                 color: "var(--color-accent)",
-                fontFamily: "var(--font-display)",
                 fontSize: "1rem",
                 fontWeight: 600,
                 mb: 1,
@@ -58,7 +42,6 @@ export default function Footer() {
               variant="body2"
               sx={{
                 color: "var(--color-text)",
-                fontFamily: "var(--font-geist-sans)",
                 opacity: 0.9,
                 lineHeight: 1.6,
               }}
@@ -83,7 +66,6 @@ export default function Footer() {
               variant="body2"
               sx={{
                 color: "var(--color-text-muted)",
-                fontFamily: "var(--font-geist-sans)",
                 borderTop: "1px dashed var(--color-border)",
                 paddingTop: 2,
                 marginTop: 1,

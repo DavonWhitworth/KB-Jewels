@@ -65,7 +65,6 @@ export default function Portfolio() {
           sx={{ 
             fontWeight: "bold", 
             color: "var(--color-accent)",
-            fontFamily: "var(--font-display)",
             letterSpacing: "0.02em",
             mb: 3,
           }}
@@ -76,7 +75,6 @@ export default function Portfolio() {
           variant="h5"
           sx={{
             color: "var(--color-text)",
-            fontFamily: "var(--font-geist-sans)",
             maxWidth: "800px",
             mx: "auto",
             lineHeight: 1.6,
@@ -149,16 +147,25 @@ export default function Portfolio() {
                   },
                 }}
               >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  placeholder="blur"
-                  className="w-full h-auto"
-                  style={{
-                    display: "block",
-                    objectFit: "cover",
+                <Box
+                  sx={{
+                    position: "relative",
+                    width: "100%",
+                    height: isWide ? "400px" : "300px", // Taller for wide images
+                    overflow: "hidden",
                   }}
-                />
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    placeholder="blur"
+                    fill
+                    style={{
+                      objectFit: "cover",
+                      objectPosition: "center", // This centers the image
+                    }}
+                  />
+                </Box>
                 <Box
                   sx={{
                     position: "absolute",
