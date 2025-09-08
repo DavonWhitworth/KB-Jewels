@@ -1,5 +1,8 @@
 import { Link, Typography, Box, Container } from "@mui/material";
+import Image from "next/image";
 import TestimonialsShowcase from "../components/sections/Testimonials"
+import RingWorking from "../../public/RingWorking.jpg"
+
 
 export default function Home() {
   return (
@@ -126,27 +129,23 @@ export default function Home() {
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "left",
                 alignItems: "center",
-                minHeight: "400px",
+                height: "200px",
+                width: "200px",
                 background: "var(--glass-bg)",
                 backdropFilter: "blur(var(--blur))",
-                borderRadius: 2,
                 border: "var(--glass-border)",
               }}
             >
-              <Typography 
-                variant="body1" 
-                sx={{ 
-                  color: "var(--color-text-muted)",
-                  textAlign: "center",
-                  px: 4,
-                }}
-              >
-                [About Image Placeholder]
-                <br />
-                Add your about image here
-              </Typography>
+              <Image
+                src={RingWorking}
+                alt="Team member working on a ring"
+                width={300}
+                height={300}
+                style={{ objectFit: "contain" }}
+                priority={false}
+              />
             </Box>
           </Box>
         </Container>
